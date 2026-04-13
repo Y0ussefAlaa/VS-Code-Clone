@@ -1,4 +1,4 @@
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
+import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 interface IProps {
   content: string | undefined;
