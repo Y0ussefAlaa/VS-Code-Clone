@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 export const fileTree: IFile = {
   id: uuidv4(),
   name: "VS Code Clone",
+  firstFolder: true,
   isFolder: true,
   children: [
     {

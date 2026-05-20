@@ -1,12 +1,15 @@
 import { svgStyles } from "../styles";
 
-function FolderIcon() {
+function FolderIcon({w = 20 , h =20}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       {...svgStyles}
       className="icon"
       viewBox="0 0 1024 1024"
+      width={w}
+      height={h}
+
     >
       <path
         fill="#FFA000"

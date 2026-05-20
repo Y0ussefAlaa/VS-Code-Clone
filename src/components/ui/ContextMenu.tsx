@@ -11,7 +11,6 @@ const ContextMenu = ({ position: { x, y }, setShowMenu }: IProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
   const { openedFiles, closesTabId } = useAppSelector((state) => state.tree);
-  console.log(closesTabId);
 
   //   ** Handlers
 
