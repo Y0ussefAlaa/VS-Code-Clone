@@ -48,7 +48,7 @@ const RecursiveComponent = ({ node }: IProps) => {
   };
 
   const liveNode = findNode(myFiles, node.id) ?? node;
-  const { id, isFolder, name, content, firstFolder } = liveNode;
+  const { id, isFolder, name, firstFolder } = liveNode;
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isInputFileOpen, setIsInputFileOpen] = useState<boolean>(false);
