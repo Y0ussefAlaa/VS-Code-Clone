@@ -15,15 +15,15 @@ interface IProps {
 const OpenFilesBarTab = ({ file }: IProps) => {
   const { openedFiles, clickedFile } = useAppSelector((state) => state.tree);
   const dispatch = useAppDispatch();
-  const { id, name, content } = file;
+  const { id } = file;
   // ** Handlers
 
   const onClick = () => {
     dispatch(
       setClickedFile({
-        fileContent: content,
-        fileName: name,
-        activeFileTabId: id,
+        activeFileTabId: file.id,
+        fileName: file.name,
+        fileContent: undefined,
       }),
     );
   };

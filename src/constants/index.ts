@@ -5,6 +5,8 @@ export const iconImagePaths: Record<string, string> = {
   html: "icons/html",
   js: "icons/javascript",
   ts: "icons/typescript",
+  css:"icons/css",
+  dart:"icons/dart",
 
   // Folders
 

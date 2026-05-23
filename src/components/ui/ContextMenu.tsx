@@ -1,28 +1,15 @@
-import { useEffect, useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/store";
-import { setOpenedFiles } from "../../app/features/fileTreeSlice";
+import { useEffect, useRef, type ReactNode } from "react";
+
 
 interface IProps {
   setShowMenu: (val: boolean) => void;
   position: { x: number; y: number };
+  children: ReactNode;
 }
 
-const ContextMenu = ({ position: { x, y }, setShowMenu }: IProps) => {
+const ContextMenu = ({ position: { x, y }, setShowMenu, children }: IProps) => {
   const menuRef = useRef<HTMLDivElement>(null);
-  const dispatch = useAppDispatch();
-  const { openedFiles, closesTabId } = useAppSelector((state) => state.tree);
-
-  //   ** Handlers
-
-  const onClose = () => {
-    const filtered = openedFiles.filter((file) => file.id !== closesTabId);
-    dispatch(setOpenedFiles(filtered));
-    setShowMenu(false);
-  };
-  const onCloseAll = () => {
-    dispatch(setOpenedFiles([]));
-    setShowMenu(false);
-  };
+ 
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -44,25 +31,12 @@ const ContextMenu = ({ position: { x, y }, setShowMenu }: IProps) => {
         aria-orientation="vertical"
         aria-labelledby="menu-button"
         style={{
-          position: "absolute",
+          position: "absolute", 
           left: x,
           top: y,
         }}
       >
-        <li
-          className="text-gray-400 block px-4 py-2 text-sm cursor-pointer hover:bg-gray-700 duration-300 rounded-sm"
-          role="menuitem"
-          onClick={onClose}
-        >
-          Close
-        </li>
-        <li
-          className="text-gray-400 block px-4 py-2 text-sm cursor-pointer hover:bg-gray-700 duration-300 rounded-sm"
-          role="menuitem"
-          onClick={onCloseAll}
-        >
-          Close All
-        </li>
+        {children}
       </ul>
     </div>
   );
